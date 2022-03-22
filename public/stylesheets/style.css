@@ -1,18 +1,104 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+	font-family: 'Inter', sans-serif;
 }
 
-a {
-  color: #00B7FF;
+body {
+	margin: 0;
+	height: 100vh;
+	display: grid;
+	grid-template-rows: 50px 1fr;
+	grid-template-areas:
+		"nav"
+		"main";
+	background-color: #F8EEE7;
+}
+
+body > main {
+	grid-area: main;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px;
+	overflow-y: scroll;
 }
 
 table, thead, th, tr, td {
-  border: 1px solid #00B7FF;
-  border-collapse: collapse;
-  text-align: center;
+	border: 2px solid #49274A;
+	border-collapse: collapse;
+	text-align: center;
+	padding: 7px;
 }
 
 table {
-  width: 100%;
+	width: 100%;
+	font-size: 15px;
+	border-collapse: collapse;
+}
+
+th {
+	background-color: #F4DEC8;
+	color: #49274A;
+}
+tr:nth-child(even) {
+	background-color: #f4dec8c2;
+}
+
+form {
+	padding: 20px;
+	font-size: 20px;
+	align-items: center;
+	justify-content: center;
+	display:inline-block;
+}
+
+select, input {
+	width: 220px;
+	font-size: 18px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+input[type=number], input[type=datetime-local]  {
+	border: 1px solid gray;
+}
+
+body > nav {
+	grid-area: nav;
+	background-color: #94618E;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 0 50px 0 50px;
+}
+
+nav > a {
+	margin: 20px;
+	text-decoration: none;
+	padding: 10px;
+	border-radius: 5px;
+	color: black;
+}
+
+nav > a:hover {
+	opacity: 50%;
+}
+
+nav > img {
+	width: 70px;
+	object-fit: contain;
+	margin-right: auto;
+}
+
+#details {
+	text-decoration: none;
+	color: #94618E;
+	border-radius: 5px;
+}
+
+#new-form, #new-dest-form {
+	background-color: #F4DEC8;
+	align-items: center;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
 }

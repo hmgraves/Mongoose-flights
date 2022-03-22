@@ -13,6 +13,12 @@ const index = (req, res) => {
 	});
 };
 
+function show(req, res) {
+	Flight.findById(req.params.id, function (err, flight) {
+		res.render('flights/show', { title: 'Flight Detail', flight });
+	});
+}
+
 const create = (req, res) => {
 	const flight = new Flight(req.body);
 	flight.save(function(err) {
@@ -24,6 +30,7 @@ const create = (req, res) => {
 
 module.exports = {
 	new: newFlight,
+	show,
 	index,
 	create
 };
