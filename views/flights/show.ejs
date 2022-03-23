@@ -49,7 +49,25 @@
 		</table>
 		<% } else { %>
 			<h5>No arrivals yet</h5>
-		<% } %>
-		<a id="tickets" href="/flights/<%= flight._id %>/tickets/new">New tickets</a>
+	<% } %>
+	<br><br>
+	<div>Tickets:</div>
+	<% if (flight.destinations.length) { %>
+		<table>
+			<thead>
+				<tr>
+					<th>Seat</th>
+					<th>Price</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+			</tbody>
+		</table>
+		<% } else { %>
+			<h5>No arrivals yet</h5>
+	<% } %>
+	<br>
+	<a id="tickets" href="/flights/<%= flight._id %>/tickets/new">New tickets</a>
 		
 <%- include('../partials/footer') %>

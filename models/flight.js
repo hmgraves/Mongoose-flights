@@ -1,5 +1,6 @@
 const { type } = require('express/lib/response');
 const mongoose = require('mongoose');
+const ticket = require('./ticket');
 const Schema = mongoose.Schema;
 
 const todayDatePlusOne = new Date(new Date().setFullYear(new Date().getFullYear() + 1)) 
