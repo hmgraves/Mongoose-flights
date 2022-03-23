@@ -13,8 +13,8 @@ const index = (req, res) => {
 	});
 };
 
-function show(req, res) {
-	Flight.findById(req.params.id, function (err, flight) {
+const show = (req, res) => {
+	Flight.findById(req.params.id, (err, flight) => {
 		res.render('flights/show', { title: 'Flight Detail', flight });
 	});
 }
@@ -28,9 +28,14 @@ const create = (req, res) => {
 	})
 }
 
+// const todayDatePlusOne = new Date(new Date().setFullYear(new Date().getFullYear() + 1)) 
+
 module.exports = {
 	new: newFlight,
 	show,
 	index,
-	create
+	create,
 };
+
+
+{/* <input value={todayDatePlusOne}></input> */}

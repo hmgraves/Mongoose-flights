@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+<h1>Create a new ticket</h1>
+	<form id="new-ticket" method="post">
+		<label>Seat
+			<br>
+			<select name="seat">
+				<option value="AUS">AUS</option>
+			</select>
+		</label>
+		<br>
+		<label>Price
+			<br>
+			<input type="datetime-local" name="arrival">
+		</label>
+		<br><br>
+		<input id="new-ticket" type="submit" value="Book ticket">
+	</form>
+<%- include('../partials/footer') %>

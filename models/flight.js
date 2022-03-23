@@ -2,6 +2,8 @@ const { type } = require('express/lib/response');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const todayDatePlusOne = new Date(new Date().setFullYear(new Date().getFullYear() + 1)) 
+
 const destinationSchema = new Schema({
 	airport: {
 		type: String,
@@ -28,7 +30,7 @@ const flightSchema = new Schema({
 	},
 	departs: {
 		type: Date,
-		// format: new Date(new Date().setFullYear(new Date().getFullYear() + 1))
+		default: todayDatePlusOne
 	},
 	destinations: [destinationSchema]
 	
