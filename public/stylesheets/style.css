@@ -83,10 +83,11 @@ nav > a:hover {
 	opacity: 50%;
 }
 
-nav > img {
+a > img {
 	width: 70px;
-	object-fit: contain;
-	margin-right: auto;
+	align-items: inherit;
+	justify-content: left;
+	float: left;
 }
 
 #details {

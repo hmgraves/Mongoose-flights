@@ -10,7 +10,6 @@ const flightsRouter = require('./routes/flights');
 const destinationsRouter = require('./routes/destinations');
 const ticketsRouter = require('./routes/tickets');
 
-
 var app = express();
 
 // view engine setup

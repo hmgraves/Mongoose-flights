@@ -31,7 +31,10 @@ const flightSchema = new Schema({
 	},
 	departs: {
 		type: Date,
-		default: todayDatePlusOne
+		default: () => {
+			const oneYear = new Date();
+			return oneYear.setFullYear(oneYear.getFullYear + 1).toISOString();
+		}
 	},
 	destinations: [destinationSchema]
 	

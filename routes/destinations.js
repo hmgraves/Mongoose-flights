@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 const destinationsCtrl = require('../controllers/destinations')
 
-// router.get('/flights/:id/tickets', destinationsCtrl.show);
 router.post('/flights/:id/details', destinationsCtrl.create);
 
 module.exports = router;

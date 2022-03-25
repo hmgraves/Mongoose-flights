@@ -1,5 +1,7 @@
 const res = require('express/lib/response');
-const Flight = require('../models/flight')
+mongoose = require('mongoose');
+const Flight = require('../models/flight');
+const Ticket = require('../models/ticket');
 
 const newFlight = (req, res) => {
 	res.render('flights/new');
@@ -13,22 +15,23 @@ const index = (req, res) => {
 	});
 };
 
-const show = (req, res) => {
-	Flight.findById(req.params.id, (err, flight) => {
-		res.render('flights/show', { title: 'Flight Detail', flight });
-	});
+function show(req, res) {
+    Flight.findById(req.params.id, function(err, flight) {
+        Ticket.find({flight: flight._id}, function(err, tickets) {
+            console.log(tickets);
+            res.render('flights/show', {flight, tickets})
+          });
+    })
 }
 
 const create = (req, res) => {
 	const flight = new Flight(req.body);
-	flight.save(function(err) {
+	flight.save((err) => {
 		if (err) return res.render('flights/new');
 		console.log(flight);
 		res.redirect('flights/index')
 	})
 }
-
-// const todayDatePlusOne = new Date(new Date().setFullYear(new Date().getFullYear() + 1)) 
 
 module.exports = {
 	new: newFlight,
@@ -36,6 +39,3 @@ module.exports = {
 	index,
 	create,
 };
-
-
-{/* <input value={todayDatePlusOne}></input> */}
