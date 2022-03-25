@@ -1,4 +1,3 @@
-const { type } = require('express/lib/response');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -13,7 +12,7 @@ const ticketSchema = new Schema({
 		min: 0
 	},
 	flight: {
-		type: Schema.Types.ObjectId,
+		type: mongoose.Types.ObjectId,
 		ref: 'Flight'
 	}
 });

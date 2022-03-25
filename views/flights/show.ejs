@@ -26,6 +26,7 @@
 		<input id="new-dest" type="submit" value="Add destinations">
 	</form>
 	<br><br>
+	<h3>Destinations:</h3>
 	<% if (flight.destinations.length) { %>
 		<table>
 			<thead>
@@ -35,7 +36,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% flight.destinations.forEach(function(d) { %>
+				<% flight.destinations.forEach((d) => { %>
 					<tr>
 						<td>
 							<%= d.airport %>
@@ -53,7 +54,7 @@
 	<% } %>
 	<br><br>
 	<div>Tickets:</div>
-	<% if (flight.destinations.length) { %>
+	<% if (tickets.length) { %>
 		<table>
 			<thead>
 				<tr>
@@ -62,7 +63,16 @@
 				</tr>
 			</thead>
 			<tbody>
-			
+				<% tickets.forEach((t) => { %>
+					<tr>
+						<td>
+							<%= t.seat %>
+						</td>
+						<td>
+							<%= t.price %>
+						</td>
+					</tr>
+					<% }); %>
 			</tbody>
 		</table>
 		<% } else { %>
